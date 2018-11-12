@@ -1,22 +1,22 @@
 <?php
 
-use App\Roles;
+use App\Role;
 use Faker\Generator as Faker;
 
-$factory->define(Roles::class, function (Faker $faker) {
+$factory->define(Role::class, function (Faker $faker) {
     return [
-        //
+        'name'  => $faker->name
     ];
 });
 
-$factory->defineAs(Roles::class, 'admin', function (Faker $faker) {
+$factory->defineAs(Role::class, 'admin', function (Faker $faker) {
     return [
         'name' => 'Админ',
         'slug'  => 'admin'
     ];
 });
 
-$factory->defineAs(Roles::class, 'client', function (Faker $faker) {
+$factory->defineAs(Role::class, 'client', function (Faker $faker) {
     return [
         'name' => 'Пользователь',
         'slug'  => 'client'
