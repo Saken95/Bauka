@@ -16,14 +16,15 @@ class CreateMainTable extends Migration
         Schema::create('main', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->string('inv_number');
-            $table->string('name');
-            $table->date('date');
-            $table->string('marka');
-            $table->string('komplekt');
-            $table->integer('kabinet');
-            $table->string('ser_number');
+            $table->string('inv_number')->unique()->nullable();
+            $table->string('name')->nullable();
+            $table->date('date')->nullable();
+            $table->string('komplekt')->nullable();
+            $table->integer('kabinet')->nullable();
+            $table->string('ser_number')->unique()->nullable();
             $table->string('naliche')->nullable();
+            $table->string('user_name')->nullable();
+            $table->string('baza')->nullable();
             $table->timestamps();
         });
 

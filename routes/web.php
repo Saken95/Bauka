@@ -22,7 +22,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::middleware(['auth'])->group(function() {
-    Route::get('/home', 'HomeController@index')->name('main');
-    Route::get('/home/create', 'MainController@create')->name('main_create');
+    Route::get('/home', function() {
+        return redirect('/');
+    });
+    Route::get('/', 'HomeController@index')->name('main');
+    Route::post('/update', 'HomeController@update')->name('main_update');
+
+    Route::post('/create', 'HomeController@create')->name('main_create');
+
+    Route::get('/server', 'HomeController@server')->name('server');
 });
 

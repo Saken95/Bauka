@@ -15,35 +15,49 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    @isset($object)
+                        <table class="table table-hover" id="main">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th scope="col">Инвентарный номер</th>
+                                    <th scope="col">Наименование</th>
+                                    <th scope="col">Дата</th>
+                                    <th scope="col">В комплекте</th>
+                                    <th scope="col">Кабинет</th>
+                                    <th scope="col">Серийный номер</th>
+                                    <th scope="col">Наличие</th>
+                                    <th scope="col">Пользователь</th>
+                                    <th>
+                                        <select name="baza" id="baza">
+                                            <option value="0" disabled selected>Выберите</option>
+                                            <option value="1">Серверная</option>
+                                            <option value="2">Склад</option>
+                                            <option value="3">Списание</option>
+                                            <option value="4">Утилизация</option>
+                                        </select>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="main_body">
+                                @foreach($object as $index => $value )
+                                    <tr>
+                                        <td>{{++$index}}</td>
+                                        <td>{{$value->inv_number}}</td>
+                                        <td>{{$value->name}}</td>
+                                        <td>{{$value->date}}</td>
+                                        <td>{{$value->komplekt}}</td>
+                                        <td>{{$value->kabinet}}</td>
+                                        <td>{{$value->ser_number}}</td>
+                                        <td>{{$value->naliche}}</td>
+                                        <td>{{$value->user_name}}</td>
+                                        <td><input value="{{$value->id}}" type="checkbox"></td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        <button class="btn btn-success" id="main_save">Сохранить</button>
+                    @endisset
                 </div>
             </div>
         </div>
@@ -61,16 +75,17 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('main_create') }}" class="mb-2">
+                <form action="{{ route('main_create') }}" method="post" class="mb-2">
+                    {{csrf_field()}}
                     <div class="input-group">
                         <input type="text" class="input" name="inv_number" placeholder="Инвентарный номер">
                         <input type="text" class="input" name="name" placeholder="Наименование">
                         <input type="date" class="input" name="date" placeholder="Дата">
-                        <input type="text" class="input" name="marka" placeholder="Марка">
                         <input type="text" class="input" name="komplekt" placeholder="В комплекте">
                         <input type="number" class="input" name="kabinet" placeholder="Кабинет">
                         <input type="text" class="input" name="ser_number" placeholder="Серийный номер">
                         <input type="text" class="input" name="naliche" placeholder="Наличие">
+                        <input type="text" class="input" name="user_name" placeholder="Пользователь">
                     </div>
                     <input type="submit" class="btn btn-success m-2" value="Save">
                 </form>

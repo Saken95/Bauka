@@ -1,4 +1,4 @@
-<nav id="sidebar">
+<nav id="sidebar" class="active">
     <div class="sidebar-header">
         <h3>bases.khm.kz</h3>
         <strong>BS</strong>
@@ -8,20 +8,23 @@
         <li class="active">
             <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                 <i class="fas fa-home"></i>
-                Склад
+                База
             </a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
                 <li>
-                    <a href="#">Приниера</a>
+                    <a href="{{route('main')}}">Главная</a>
                 </li>
                 <li>
-                    <a href="#">Системные блоки</a>
+                    <a href="{{route('server')}}">Серверная</a>
                 </li>
                 <li>
-                    <a href="#">Мониторы</a>
+                    <a href="#">Склад</a>
                 </li>
                 <li>
-                    <a href="#">ИБП</a>
+                    <a href="#">Списание</a>
+                </li>
+                <li>
+                    <a href="#">Утилизация</a>
                 </li>
             </ul>
         </li>

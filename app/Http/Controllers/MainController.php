@@ -12,10 +12,6 @@ class MainController extends Controller
     public function index() {
         
     }
-    public function create(Request $request) {
-        $request['user_id']=Auth::id();
-        Main::create($request->all());
-
-        return view('home');
-    }
+    
+   
 }

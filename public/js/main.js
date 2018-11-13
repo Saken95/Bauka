@@ -28,5 +28,38 @@ $(document).ready(function () {
         $('a[aria-expanded=true]').attr('aria-expanded', 'false');
     });
 
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    
+    $('#main_save').click(
+        function () {
+            var baza, main, arr = [];
+            baza = $('#baza').val();
+            main = $('#main_body input[type="checkbox"]:checked');
+
+            $.each(main, function (i, v) {
+               arr[i] = v.value;
+            });
+
+            if ( baza != null && arr != [] ) {
+                $.ajax({
+                    url: '/update',
+                    type: 'POST',
+                    data: {
+                        'baza': baza,
+                        'element': arr
+                    },
+                    success: function (data) {
+                        if ( data.data ) {
+                            window.location.href = '/';
+                        }
+                    }
+                });
+            }
+        }
+    );
 
 });
