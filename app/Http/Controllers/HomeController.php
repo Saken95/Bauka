@@ -25,9 +25,13 @@ class HomeController extends Controller
     public function update( Request $request ) {
         if( $request->ajax() ) {
             if ( $request->has('baza') && $request->has('element') ) {
+                $baza = $request->baza;
+                if ( $baza == 'null' ) {
+                    $baza = NULL;
+                }
                 foreach ( $request->element as $item) {
                     Main::where( 'id', $item )->update([
-                        'baza' => $request->baza
+                        'baza' => $baza
                     ]);
                 }
 

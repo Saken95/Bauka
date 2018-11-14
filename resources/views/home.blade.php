@@ -8,7 +8,7 @@
                 Add
             </button>
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Главная</div>
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -34,7 +34,6 @@
                                             <option value="1">Серверная</option>
                                             <option value="2">Склад</option>
                                             <option value="3">Списание</option>
-                                            <option value="4">Утилизация</option>
                                         </select>
                                     </th>
                                 </tr>
