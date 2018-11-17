@@ -101,7 +101,7 @@
                         <!-- left button menu -->
                         <button type="button" id="sidebarCollapse" class="btn btn-info">
                             <i class="fas fa-align-left"></i>
-                            <span>Menu</span>
+                            <span>Меню</span>
                         </button>
 
                         <!-- right button notices -->

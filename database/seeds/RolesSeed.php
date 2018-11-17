@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class RolesSeed extends Seeder
 {
@@ -14,5 +15,6 @@ class RolesSeed extends Seeder
         //
         factory(\App\Role::class, 'admin')->create();
         factory(\App\Role::class, 'client')->create();
+
     }
 }

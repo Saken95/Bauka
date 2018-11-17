@@ -17,18 +17,24 @@ class UserSeed extends Seeder
             [
                 'name' => 'admin',
                 'email' => 'admin@bases.kz',
-                'password' => 'secret'
-            ]
+                'password' => 'secret',
+                'role_id'   => 1
+            ],
+            [
+                'name' => 'user',
+                'email' => 'user@bases.kz',
+                'password' => 'secret',
+                'role_id'   => 2
+            ],
         ];
         
         foreach ( $users as $user ) {
-            foreach ($user as $value ) {
-                User::create([
-                    'name' => $value['name'],
-                    'email' => $value['email'],
-                    'password' => Hash::make($value['password']),
-                ]);
-            }
+            User::create([
+                'name' => $user['name'],
+                'email' => $user['email'],
+                'password' => Hash::make($user['password']),
+                'role_id' => $user['role_id'],
+            ]);
         }
 
     }

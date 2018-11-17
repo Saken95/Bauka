@@ -24,6 +24,7 @@
                                     <th scope="col">Серийный номер</th>
                                     <th scope="col">Наличие</th>
                                     <th scope="col">Пользователь</th>
+                                    @if($form)
                                     <th>
                                         <select name="baza" id="baza">
                                             <option value="0" disabled selected>Выберите</option>
@@ -32,6 +33,7 @@
                                             <option value="3">Списание</option>
                                         </select>
                                     </th>
+                                    @endif
                                 </tr>
                             </thead>
                             <tbody id="main_body">
@@ -45,12 +47,18 @@
                                         <td>{{$value->ser_number}}</td>
                                         <td>{{$value->naliche}}</td>
                                         <td>{{$value->user_name}}</td>
+
+                                        @if($form)
                                         <td><input value="{{$value->id}}" type="checkbox"></td>
+                                        @endif
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
-                        <button class="btn btn-success" id="main_save">Сохранить</button>
+
+                        @if($form)
+                            <button class="btn btn-success" id="main_save">Сохранить</button>
+                        @endif
                         @endisset
                     </div>
                 </div>

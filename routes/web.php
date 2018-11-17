@@ -31,5 +31,13 @@ Route::middleware(['auth'])->group(function() {
     Route::post('/create', 'HomeController@create')->name('main_create');
 
     Route::get('/server', 'HomeController@server')->name('server');
+
+    Route::get('/sklad', 'HomeController@sklad')->name('sklad');
+
+    Route::get('/spisania', 'HomeController@spisania')->name('spisania');
+
+    Route::get('/utilizatsia', 'HomeController@utilizatsia')->name('utilizatsia');
+
+    Route::post('/delete', 'HomeController@delete')->name('delete');
 });
 

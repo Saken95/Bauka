@@ -23,14 +23,10 @@
                                 <th scope="col">В комплекте</th>
                                 <th scope="col">Серийный номер</th>
                                 <th scope="col">Наличие</th>
-                                <th>
-                                    <select name="baza" id="baza">
-                                        <option value="0" disabled selected>Выберите</option>
-                                        <option value="1">Серверная</option>
-                                        <option value="2">Склад</option>
-                                        <option value="3">Списание</option>
-                                    </select>
-                                </th>
+
+                                @if($form)
+                                    <th>Удалить</th>
+                                @endif
                             </tr>
                             </thead>
                             <tbody id="main_body">
@@ -43,12 +39,21 @@
                                     <td>{{$value->komplekt}}</td>
                                     <td>{{$value->ser_number}}</td>
                                     <td>{{$value->naliche}}</td>
-                                    <td><input value="{{$value->id}}" type="checkbox"></td>
+                                    @if($form)
+                                        <td>
+                                            <label for="delete">
+                                                <input value="{{$value->id}}" type="checkbox" id="delete"><i class="fas fa-trash-alt"></i>
+                                            </label>
+                                        </td>
+                                    @endif
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
-                        <button class="btn btn-success" id="main_save">Сохранить</button>
+
+                        @if($form)
+                            <button class="btn btn-success" id="main_delete">Удалить</button>
+                        @endif
                         @endisset
                     </div>
                 </div>

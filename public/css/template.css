@@ -70,6 +70,7 @@ span {
 }
 #sidebarRight.active {
     right: 0;
+    overflow: unset;
 }
 
 #sidebarRight #dismiss {
@@ -220,7 +221,7 @@ span {
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
-    background: #6d7fcc;
+    background: #7386d5;
 }
 
 a[data-toggle="collapse"] {
@@ -239,7 +240,7 @@ a[data-toggle="collapse"] {
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #6d7fcc;
+    background: #7386d5;
 }
 
 ul.CTAs {
@@ -342,4 +343,32 @@ form input.input {
     border-radius: 3px;
     border: 1px solid #777;
 }
-
+form select {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px 3px;
+}
+.gj-datepicker {
+    margin-bottom: 10px;
+}
+td label {
+    margin-bottom: 0;
+}
+.fa-trash-alt {
+    margin-left: 5px;
+    top: -2px;
+    position: relative;
+    transform: scale(1.2);
+}
+/* ---------------------------------------------------
+    LEFT STYLE
+----------------------------------------------------- */
+#sidebar .collapse li.active a{
+    background: #6d7fcc;
+}
+nav.active li a span {
+    display: none;
+}
+nav li a span {
+    display: inline-block;
+}

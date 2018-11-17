@@ -62,4 +62,30 @@ $(document).ready(function () {
         }
     );
 
+    $('#main_delete').click(
+        function () {
+            var main, arr = [];
+            main = $('#main_body input[type="checkbox"]:checked');
+
+            $.each(main, function (i, v) {
+               arr[i] = v.value;
+            });
+
+            if ( arr != [] ) {
+                $.ajax({
+                    url: '/delete',
+                    type: 'POST',
+                    data: {
+                        'element': arr
+                    },
+                    success: function (data) {
+                        if ( data.data ) {
+                            window.location.href = '/utilizatsia';
+                        }
+                    }
+                });
+            }
+        }
+    );
+
 });
