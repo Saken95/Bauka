@@ -360,6 +360,10 @@ td label {
     position: relative;
     transform: scale(1.2);
 }
+
+#content .container {
+    max-width: 100% !important;
+}
 /* ---------------------------------------------------
     LEFT STYLE
 ----------------------------------------------------- */
