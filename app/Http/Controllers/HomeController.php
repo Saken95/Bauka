@@ -66,9 +66,11 @@ class HomeController extends Controller
     }
 
     public function create(Request $request) {
-        $request['user_id']= Auth::id();
-        Main::create($request->all());
-        return redirect()->route('main');
+        if( $request->ajax() ) {
+            $request['user_id'] = Auth::id();
+            Main::create($request->all());
+            return response()->json($request->all());
+        }
     }
 
     public function server() {
