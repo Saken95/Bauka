@@ -364,6 +364,9 @@ td label {
 #content .container {
     max-width: 100% !important;
 }
+#errors {
+    color: red;
+}
 /* ---------------------------------------------------
     LEFT STYLE
 ----------------------------------------------------- */

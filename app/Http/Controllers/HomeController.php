@@ -30,6 +30,7 @@ class HomeController extends Controller
             'object'    => $main,
             'form'      => $this->getUser()
         ]);
+
     }
 
     public function update( Request $request ) {
@@ -66,11 +67,21 @@ class HomeController extends Controller
     }
 
     public function create(Request $request) {
+
+        $validator = \Validator::make($request->all(), [
+            'inv_number' => 'required|string|max:255|unique:main'
+        ]);
+
+        if ($validator->fails())
+        {
+            return response()->json(['errors'=>$validator->errors()->all()]);
+        }
+        
         if( $request->ajax() ) {
             $request['user_id'] = Auth::id();
             Main::create($request->all());
-            return response()->json($request->all());
         }
+        return response()->json($request->all());
     }
 
     public function server() {

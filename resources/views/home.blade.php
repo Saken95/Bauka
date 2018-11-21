@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-12">
+            <div class="col-md-12 p-0">
                 @if($form)
                     <button type="button" class="btn btn-primary mb-4" data-toggle="modal" data-target="#modalBtn">
                         <i class="fas fa-plus"></i> Добавить
@@ -84,12 +84,13 @@
                         </button>
                     </div>
                     <div class="modal-body">
+                        <div id="errors"></div>
                         <form action="{{ route('main_create') }}" method="post" class="mb-2">
                             {{csrf_field()}}
                             <div class="input-group">
                                 <input type="text" class="input" name="inv_number" id="inv_number" placeholder="Инвентарный номер">
                                 <input type="text" class="input" name="name" id="name" placeholder="Наименование" required>
-                                <input type="date" class="input" name="date" id="date" placeholder="Дата">
+                                <input type="text" class="input" name="date" id="date" placeholder="Дата">
                                 <input type="text" class="input" name="komplekt" id="komplekt" placeholder="В комплекте">
                                 <input type="number" class="input" name="kabinet" id="kabinet" placeholder="Кабинет">
                                 <input type="text" class="input" name="ser_number" id="ser_number" placeholder="Серийный номер">

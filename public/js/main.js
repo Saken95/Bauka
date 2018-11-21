@@ -3,6 +3,17 @@
  */
 $(document).ready(function () {
 
+    $('#date').datepicker({
+        autoHide: true,
+        zIndex: 2048,
+        format: 'dd.mm.yyyy',
+        monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        daysMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+        daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+        days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    });
+
     $('.table').DataTable();
 
     $('#sidebarCollapse').on('click', function () {
@@ -58,6 +69,10 @@ $(document).ready(function () {
                     user_name: $('#user_name').val(),
                 },
                 success: function (data) {
+                    if ( data.errors ) {
+                        $('#errors').text((data.errors))
+                    }
+                    console.log(data);
                     var inp = $('#modalBtn form input[type="text"]');
                     $.each(inp, function (i, v) {
                         v.value = "";

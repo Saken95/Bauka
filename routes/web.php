@@ -25,6 +25,7 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/home', function() {
         return redirect('/');
     });
+    
     Route::get('/', 'HomeController@index')->name('main');
     Route::post('/update', 'HomeController@update')->name('main_update');
 
@@ -39,5 +40,7 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/utilizatsia', 'HomeController@utilizatsia')->name('utilizatsia');
 
     Route::post('/delete', 'HomeController@delete')->name('delete');
+
+    Route::get('/users', 'MainController@users')->name('users');
 });
 

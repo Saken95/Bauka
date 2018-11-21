@@ -30,14 +30,14 @@
         </li>
         <li>
             @if($form)
-                <a href="#">
+                <a href="{{ route('users') }}">
                     <i class="fas fa-user"></i>
-                    Пользователи
+                    <span>Пользователи</span>
                 </a>
             @endif
             <a href="#">
                 <i class="fas fa-sort-numeric-up"></i>
-                Инвентаризация
+                <span>Инвентаризация</span>
             </a>
         </li>
     </ul>
